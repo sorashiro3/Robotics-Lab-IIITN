@@ -1,0 +1,281 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/SandyGround.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/garden/protos/Slide.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/garden/protos/SwingCouch.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/garden/protos/Swing.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/garden/protos/Wheelbarrow.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/buildings/protos/Windmill.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/chairs/protos/Chair.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/garden/protos/Pergolas.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/garden/protos/DogHouse.proto"
+
+WorldInfo {
+  info [
+    "Pioneer 3AT robot (Adept MobileRobots)."
+    "This all terrain four wheels drive robot is  equipped with a Sick LMS 291 lidar."
+    "It is programmed to perform a simple obstacle avoidance behavior based on the sensor data measured by the lidar."
+  ]
+  title "Pioneer 3AT"
+  lineScale 0.5
+}
+Viewpoint {
+  orientation -0.041218137894205996 0.8693281310932697 0.492513619708549 0.1920150358078392
+  position -7.5083248855017874 0.08960936071321399 2.940749534989603
+  followSmoothness 0
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  translation -0.04 0 0
+  floorSize 30 30
+  floorTileSize 3 3
+  floorAppearance SandyGround {
+    colorOverride 0.6 0.9 0.1
+  }
+  wallThickness 0.3
+  wallHeight 1.1
+  wallAppearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/default/worlds/textures/gray_brick_wall.jpg"
+      ]
+    }
+    roughness 1
+    metalness 0
+    textureTransform TextureTransform {
+      scale 56 28
+    }
+  }
+}
+DogHouse {
+  translation 11.64 6.82 0
+  rotation 0 0 1 3.14159
+}
+Chair {
+  translation 13.14 -3.25 0
+  rotation 0 0 1 3.14159
+  name "chair(4)"
+}
+Pergolas {
+  translation 12.12 -4.11998 0.23
+  rotation 0 0 1 -3.1415853071795863
+}
+Chair {
+  translation 13.14 -3.76 0
+  rotation 0 0 1 3.14159
+  name "chair(3)"
+}
+Chair {
+  translation 13.14 -4.27 0
+  rotation 0 0 1 3.14159
+  name "chair(2)"
+}
+Chair {
+  translation 13.14 -4.79 0
+  rotation 0 0 1 3.14159
+  name "chair(1)"
+}
+Windmill {
+  translation -10.173 11.855 0
+  rotation 0 0 -1 1.0472
+}
+Wheelbarrow {
+  translation 5.09422 -11.7172 0
+  rotation 0 0 1 2.85387e-06
+}
+Swing {
+  translation -10.444 -10.444 0
+  rotation 0 0 1 0.785398
+}
+Chair {
+  translation 13.14 -5.31 0
+  rotation 0 0 1 3.14159
+}
+SwingCouch {
+  translation -9.47672e-06 -11.33 0
+  rotation 0 0 1 1.5708
+}
+Slide {
+  translation -9.41 0 0
+}
+Slide {
+  translation -9.3 3.25 0
+  name "slide(1)"
+}
+WoodenBox {
+  translation 7.54 -11.46 0.3
+}
+Robot {
+  translation 3.0382705594370667 0.9284718476194174 0.09558544359738683
+  rotation -0.00046764887237309545 0.00013030159965691444 -0.9999998821630056 0.9711812775752788
+  children [
+    DEF Body Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+      }
+      geometry Box {
+        size 0.3 0.5 0.1
+      }
+    }
+    DistanceSensor {
+      name "distance sensor(1)"
+    }
+    DistanceSensor {
+      translation -0.0784747 -0.244175 0
+      rotation 0 0 -1 1.8326
+      children [
+        DEF sensor Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+          }
+          geometry Box {
+            size 0.05 0.03 0.02
+          }
+        }
+      ]
+      name "ds_right"
+      boundingObject USE sensor
+      physics Physics {
+      }
+      lookupTable [
+        0 0 0
+        0.6 1000 0
+      ]
+    }
+    DistanceSensor {
+      translation 0.0784715 -0.244175 0
+      rotation 0 0 1 -1.3090053071795866
+      children [
+        DEF sensor Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+          }
+          geometry Box {
+            size 0.05 0.03 0.02
+          }
+        }
+      ]
+      name "ds_left"
+      boundingObject USE sensor
+      physics Physics {
+      }
+      lookupTable [
+        0 0 0
+        0.6 1000 0
+      ]
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 4891.228081226423
+        anchor -0.17 0.13 0.000187735
+      }
+      device [
+        RotationalMotor {
+          name "wheel4"
+        }
+      ]
+      endPoint Solid {
+        translation -0.1700000168387915 0.13001486762174272 0.00024965456630654157
+        rotation 0.7047329886082652 -0.08200097754850627 -0.7047178544980626 2.9779533776587064
+        children [
+          DEF wheel Shape {
+            appearance PBRAppearance {
+              baseColor 1 0 0
+            }
+            geometry Cylinder {
+              height 0.05
+              radius 0.1
+            }
+          }
+        ]
+        boundingObject USE wheel
+        physics DEF physics_wheel Physics {
+        }
+        linearVelocity -2.0887122166363995e-10 4.893326505952017e-11 1.4735467493822133e-13
+        angularVelocity 3.0541279697619584e-09 -4.4641360206065e-09 1.196842326547466e-09
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 1868.818233710729
+        anchor -0.17 -0.13 0.000119105
+      }
+      device [
+        RotationalMotor {
+          name "wheel2"
+        }
+      ]
+      endPoint Solid {
+        translation -0.16999996564663053 -0.1300001645933832 0.00011918015834976148
+        rotation -0.69883982308409 -0.15239207663913526 -0.6988558911888842 3.4440428934026572
+        children [
+          USE wheel
+        ]
+        name "solid(3)"
+        boundingObject USE wheel
+        physics USE physics_wheel
+        linearVelocity -2.7200971338605213e-11 -2.030088142832765e-10 -1.5911248658690644e-13
+        angularVelocity -1.6278037696713342e-11 2.7664607365281735e-11 1.196317826618074e-09
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 5263.940276187182
+        anchor 0.17 -0.14 0.000176762
+      }
+      device [
+        RotationalMotor {
+          name "wheel1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.17000001378018173 -0.14005702756640004 0.00016506608669810758
+        rotation -0.5344286479182132 0.6548139576476427 -0.5344199670241948 1.9820739118409167
+        children [
+          USE wheel
+        ]
+        name "solid(2)"
+        boundingObject USE wheel
+        physics USE physics_wheel
+        linearVelocity 3.1580528891727313e-10 1.6393636913285568e-11 2.5224149959815067e-13
+        angularVelocity -1.1389953360895261e-08 1.6666186835203783e-08 1.1943793446330088e-09
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 2218.518974826246
+        anchor 0.17 0.13 0.000187456
+      }
+      device [
+        RotationalMotor {
+          name "wheel3"
+        }
+      ]
+      endPoint Solid {
+        translation 0.16999996462569458 0.13003327616041174 0.0001333764141166587
+        rotation -0.2640327157627974 -0.9276722714159376 -0.2640281838230858 4.637399663961839
+        children [
+          USE wheel
+        ]
+        name "solid(1)"
+        boundingObject USE wheel
+        physics USE physics_wheel
+        linearVelocity 1.2836888717411123e-10 2.7890024478856394e-10 -2.402910071914728e-13
+        angularVelocity 6.938754651950958e-09 -1.0147056899832668e-08 1.1975036917091356e-09
+      }
+    }
+  ]
+  boundingObject USE Body
+  physics Physics {
+  }
+  controller "keyboard"
+  linearVelocity 5.0976612672095935e-11 3.680247360549119e-11 -4.0903105013997626e-13
+  angularVelocity 2.2620354402035196e-12 4.617323801417927e-13 1.1963191637690295e-09
+}
